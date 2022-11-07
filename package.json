@@ -1,0 +1,25 @@
+{
+  "name": "parse-linkedin-skills-private",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanKr/parse-linkedin-skills-private.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanKr/parse-linkedin-skills-private/issues"
+  },
+  "homepage": "https://github.com/NathanKr/parse-linkedin-skills-private#readme",
+  "dependencies": {
+    "node-html-parser": "^6.1.1",
+    "pupeteer": "^0.0.1",
+    "puppeteer": "^19.2.2"
+  }
+}
