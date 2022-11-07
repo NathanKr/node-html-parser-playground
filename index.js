@@ -12,6 +12,9 @@ async function run(){
     const bodyElem = dom.querySelector('body');
     console.log(bodyElem.innerHTML);
 
+    const pElems = bodyElem.querySelectorAll('p');
+    console.log(pElems.length);
+
     await browser.close();
 }
 
