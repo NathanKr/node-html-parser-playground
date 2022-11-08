@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer");
-const { parse } = require("node-html-parser");
+const { parse, NodeType } = require("node-html-parser");
 const url = "http://example.com/";
 
 async function run() {
@@ -18,8 +18,14 @@ async function run() {
   // --- get child nodes
   console.log("get child nodes in body > div");
   const parentEl = dom.querySelector("body > div");
+
+  // --- this div has 3 children 
+  index = 0;
   for (const childEl of parentEl.childNodes) {
-    console.log(childEl.innerText);
+    if(childEl.nodeType == NodeType.ELEMENT_NODE){
+      console.log(`node : ${index}`,childEl.innerText);
+      index++;
+    }
   }
 
   await browser.close();
