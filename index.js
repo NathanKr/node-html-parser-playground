@@ -18,8 +18,7 @@ async function run() {
   // --- get child nodes
   console.log("get child nodes in body > div");
   const parentEl = dom.querySelector("body > div");
-  const childElements = Object.values(parentEl.childNodes);
-  for (const childEl of childElements) {
+  for (const childEl of parentEl.childNodes) {
     console.log(childEl.innerText);
   }
 
@@ -27,3 +26,4 @@ async function run() {
 }
 
 run();
+
