@@ -1,9 +1,9 @@
 import puppeteer from "puppeteer";
 import parse, { NodeType } from "node-html-parser";
 import { HTMLElement } from "node-html-parser";
-const url = "http://example.com/";
 
-async function run() {
+async function runExampleCom() {
+  const url = "http://example.com/";
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
@@ -35,8 +35,8 @@ async function run() {
   }
 
   // --- get first child of  body > div
-  console.log('sibling not working !!!');
-  
+  console.log("sibling not working !!!");
+
   let sibling = (dom.querySelector("body > div")! as unknown as HTMLElement)
     .firstChild as HTMLElement;
 
@@ -49,4 +49,21 @@ async function run() {
   await browser.close();
 }
 
-run();
+async function runMatlab() {
+  const url =
+    "https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes/blob/main/matlab/matlab-quiz.md";
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(url);
+  const data = await page.$eval("html", (elem) => elem.innerHTML);
+  const dom = parse(data);
+
+  // -- i am getting here 95 but on firefox browser i get 165 not clear why
+  console.log(dom.querySelectorAll('code').length);
+   
+
+  await browser.close();
+}
+
+// runExampleCom()
+runMatlab()
