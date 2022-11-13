@@ -10,6 +10,13 @@ async function runExampleCom() {
   const data = await page.$eval("html", (elem) => elem.innerHTML);
 
   const dom = parse(data);
+
+  console.log('html to string---->start');
+  console.log(dom.toString());
+  const domFromString = parse(dom.toString());
+  console.log(domFromString);
+  console.log('html to string---->end');
+
   const bodyElem = dom.querySelector("body");
   // console.log(bodyElem!.innerHTML);
 
@@ -65,5 +72,5 @@ async function runMatlab() {
   await browser.close();
 }
 
-// runExampleCom()
-runMatlab()
+runExampleCom()
+// runMatlab()
