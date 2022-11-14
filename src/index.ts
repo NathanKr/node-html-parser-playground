@@ -11,6 +11,10 @@ async function runExampleCom() {
 
   const dom = parse(data);
 
+  dom.setAttribute('key','11');
+
+  const val = dom.getAttribute('key')
+
   console.log('html to string---->start');
   console.log(dom.toString());
   const domFromString = parse(dom.toString());
@@ -67,10 +71,12 @@ async function runMatlab() {
 
   // -- i am getting here 95 but on firefox browser i get 165 not clear why
   console.log(dom.querySelectorAll('code').length);
+  const attrs = dom.querySelector('ul.contains-task-list:nth-child(3) > li:nth-child(4) > input:nth-child(1)');
+  console.log(attrs!.rawAttrs.includes('checked'));
    
 
   await browser.close();
 }
 
-runExampleCom()
-// runMatlab()
+// runExampleCom()
+ runMatlab()
