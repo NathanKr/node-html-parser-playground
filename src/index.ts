@@ -60,6 +60,15 @@ async function runExampleCom() {
   await browser.close();
 }
 
+function isChecked(elem: HTMLElement): boolean {
+  // -- implemented because checked is not working
+  return elem.rawAttrs.includes("checked");
+}
+
+function removeChecked(elem: HTMLElement) : void{
+  elem.removeAttribute('checked')
+}
+
 async function runMatlab() {
   const url =
     "https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes/blob/main/matlab/matlab-quiz.md";
@@ -72,11 +81,16 @@ async function runMatlab() {
   // -- i am getting here 95 but on firefox browser i get 165 not clear why
   console.log(dom.querySelectorAll('code').length);
   const attrs = dom.querySelector('ul.contains-task-list:nth-child(3) > li:nth-child(4) > input:nth-child(1)');
-  console.log(attrs!.rawAttrs.includes('checked'));
+  
+  console.log(dom.querySelectorAll('input').filter(e => isChecked(e)).length);
+  removeChecked(dom.querySelectorAll('input').filter(e => isChecked(e))[0])
+  console.log(dom.querySelectorAll('input').filter(e => isChecked(e)).length);
+  
+  
+  
    
 
   await browser.close();
 }
-
 // runExampleCom()
  runMatlab()
